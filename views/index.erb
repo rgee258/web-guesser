@@ -1,11 +1,23 @@
 <html>
-  <head></head>
+  <head>
+    <style>
+      body {
+        <%= bg %>;
+      }
+    </style>
+  </head>
   <body>
+    <p>
+      Guesses left: <%= guesses %>
+    </p>
     <p>
       <%= output %>
     </p>
     <p>
       <%= number %>
+    </p>
+    <p>
+      <%= cheat %>
     </p>
     <form>
       <input type="text" name="guess" />
