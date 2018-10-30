@@ -6,7 +6,8 @@ SECRET_NUMBER = rand(100)
 get '/' do
   guess = params["guess"].to_i
   output = check(guess, SECRET_NUMBER)
-  erb :index, :locals => {:number => SECRET_NUMBER, :output => output}
+  number = number_output(output)
+  erb :index, :locals => {:number => number, :output => output}
 end
 
 def check(guess, number)
@@ -24,5 +25,13 @@ def check(guess, number)
     end
   elsif (guess == number)
     "You got it right!"
+  end
+end
+
+def number_output(check_output)
+  if (check_output == "You got it right!")
+    "The SECRET NUMBER is #{SECRET_NUMBER}"
+  else
+    ""
   end
 end
